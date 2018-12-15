@@ -1,0 +1,21 @@
+install g++
+
+
+
+
+using oracle yum
+
+https://flashdba.com/2012/10/08/this-system-is-not-registered-with-uln-rhn/
+
+
+
+# cd /etc/yum.repos.d
+# wget http://public-yum.oracle.com/public-yum-ol6.repo
+
+change gpgcheck=0 in public-yum-ol6.repo
+gpgcheck=0
+
+yum install gcc-c++
+
+
+complete

@@ -1,0 +1,8 @@
+
+<div class="layui-inline">
+	<label class="layui-form-label">${label}</label>
+	<div class="layui-input-inline">
+		<input type="text" id="${field}" name="${field}" placeholder="ÇëÊäÈë${label}" class="layui-input">
+	</div>
+</div>
+

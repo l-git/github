@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.dao.UserDao">
+	<select id="selectUsers" resultType="com.company.domain.User">
+		select
+		id as "id",
+		username as "username",
+		password as "password",
+		create_date as "createDate"
+		from t_system_users
+	</select>
+
+
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" >
+		insert into t_system_users ( username, password, create_date) values (
+		
+		#{username},#{password},now()
+		
+		)
+	</insert>
+
+
+<update id="update">
+  update t_system_users set
+    username = #{username},
+    password = #{password}
+  where id = #{id}
+</update>
+
+
+<select id="callSelectUserById" statementType="CALLABLE" useCache="false" resultType="hashmap">
+
+	{
+	
+		call select_user_by_id (
+		
+		#{id,mode=IN,jdbcType=BIGINT},
+		#{username,mode=OUT,jdbcType=VARCHAR},
+		#{password,mode=OUT,jdbcType=VARCHAR},
+		#{create_date,mode=OUT,jdbcType=TIMESTAMP}
+		
+		)
+		
+	
+	}
+
+
+</select>
+
+
+<select id="callBean" statementType="CALLABLE" useCache="false">
+
+	{
+	
+		call select_user_by_id (
+		
+		#{id,mode=IN,jdbcType=BIGINT},
+		#{username,mode=OUT,jdbcType=VARCHAR},
+		#{password,mode=OUT,jdbcType=VARCHAR},
+		#{createDate,mode=OUT,jdbcType=TIMESTAMP}
+		
+		)
+		
+	
+	}
+
+
+</select>
+
+</mapper>

@@ -1,0 +1,27 @@
+test dynamic proxy mybatis use
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

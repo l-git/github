@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <ul>
+            #foreach($lang in $langList)
+                <li>
+                    $lang
+                </li>
+            #end
+        </ul>
+    </body>
+</html>

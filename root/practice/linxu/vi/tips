@@ -1,0 +1,25 @@
+
+
+
+delete all lines :1,$d
+
+
+u: undo last change 
+Ctrl-R: Redo 
+
+
+search
+:s/string
+
+
+search and replace
+:s/pattern/replace/
+
+
+replace all
+:%s/pattern/replace/
+
+
+
+
+

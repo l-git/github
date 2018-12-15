@@ -1,0 +1,43 @@
+
+{
+
+    "shops":[
+
+        {
+            "shop":{
+                "shopName":"",
+                "category":[
+
+                    {
+                        "categoryName":"",
+                        "album":[
+                            {
+                                "albumTitle":"",
+                                "albumHref":"",
+                                "albumImgSrc":"",
+                                "localSrc":"",
+                                "photos":[
+                                    {
+                                        "dataOriginSrc":"",
+                                        "photoTitle":"",
+                                        "photoTime":"",
+                                        "localSrc":""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+
+
+                ]
+            }
+        }
+
+
+
+    ]
+
+
+}
+
+

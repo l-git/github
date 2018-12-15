@@ -1,0 +1,11 @@
+
+tcpdump
+
+type(tcp|udp) direction(src|dst) proto
+
+
+
+tcp dst port 135
+
+
+

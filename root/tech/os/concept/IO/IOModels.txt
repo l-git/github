@@ -1,0 +1,9 @@
+http://www.cs.huji.ac.il/course/2004/com1/Exercises/Ex4/I.O.models.pdf
+
+
+
+http://www.masterraghu.com/subjects/np/introduction/unix_network_programming_v1.3/ch06lev1sec2.html
+
+https://notes.shichao.io/unp/ch6/
+
+

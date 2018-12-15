@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue ²âÊÔÊµÀý - ²ËÄñ½Ì³Ì(runoob.com)</title>
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/vue-router/2.7.0/vue-router.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+  <p>{{ message }}</p>
+  
+  <p>{{m1()}}</p>
+  
+  <div v-bind:class="{'class1':class1}">
+  
+  </div>
+  
+  
+  <div v-bind:id="'list-'+id">
+  
+  </div>
+  
+  
+  <div v-if ="se">
+	fefef
+  </div>
+  
+  <div v-bind:url="url">
+  
+  </div>
+  
+  
+  <div v-on:click="cli" >
+	click
+  
+  </div>
+  
+  
+  <div>
+	
+	<div> {{ msg | filtermsg }} &nbsp;</div>
+	
+	<input v-model="msg" />
+  
+  
+  
+  </div>
+  
+  
+  <div>condition</div>
+  
+  <template v-if="ok">
+	<h1>this is test v-if</h1>
+  </template>
+  
+  
+  <div>v-for</div>
+  
+  <ol>
+	<li v-for="site in sites">
+		{{ site.name }}
+	</li>
+  
+  </ol>
+  
+  <div>computed</div>
+  
+  
+  <div>
+	<p>source:{{ msg }}</p>
+	
+	<p> {{ cmsg }} </p>
+  
+  </div>
+  
+  <div>watch</div>
+  
+  
+  <div>
+	<input v-model="watch1" />
+  </div>
+  
+  
+  <div>v-on</div>
+  
+  <div v-on:click="counter+=1">counter + 1</div>
+  <p>{{ counter }}</p>
+  
+  
+  <div>component</div>
+  
+  <div>
+	<comp1></comp1>
+  </div>
+  
+  
+  
+  <div>vue-router</div>
+  
+  <div>
+	
+  
+  
+  </div>
+  
+  
+  
+  
+  
+</div>
+
+<script>
+
+
+Vue.component('comp1',{
+template:'<h1>this is comp 1</h1>'
+});
+
+
+
+var v=new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!',
+	class1:false,
+	id:29,
+	se:false,
+	url:"http://abc.com",
+	msg:'',
+	ok:true,
+	sites: [
+      { name: 'Runoob' },
+      { name: 'Google' },
+      { name: 'Taobao' }
+    ]
+	,watch1:''
+	,counter:0
+  },
+  methods:{
+	m1:function(){
+		return this.message+"-- this is method";
+	},
+	cli:function(){
+		alert('do');
+	}
+	
+  },
+  filters:{
+	filtermsg:function(value){
+  
+		return value+"-filter";
+	}
+  }
+  ,computed:{
+	
+	cmsg:function(){
+		
+		return "computed =  "+this.msg;
+	}
+	
+	
+	
+  },
+  watch:{
+	watch1:function(val){
+	
+		alert(val+" watch1");
+		
+		
+	}
+  
+  }
+  
+})
+</script>
+</body>
+</html>

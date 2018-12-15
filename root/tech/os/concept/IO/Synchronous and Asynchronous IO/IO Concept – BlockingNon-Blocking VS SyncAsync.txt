@@ -1,0 +1,30 @@
+https://blogs.msdn.microsoft.com/csliu/2009/08/27/io-concept-blockingnon-blocking-vs-syncasync/
+
+
+
+
+
+
+
+- Blocking I/O
+means that the calling system does not return control to the caller
+until the operation is finished. As a result, the caller is blocked and
+cannot perform other activities during that time.
+- Non-blocking Synchronous I/O
+means that call returns control to the caller immediately and the
+caller is not made to wait. The invoked system immediately returns one
+of two responses: If the call was executed and the results are ready,
+then the caller is told of that. Alternatively, the invoked system can
+tell the caller that the system has no resources (no data in the
+socket) to perform the requested action.
+- Non-blocking Asynchronous I/O
+means that the calling function returns control to the caller
+immediately, reporting that the requested action was started. The
+invoked system will notify the caller (by callback for example), when
+the result is ready for processing.
+
+
+
+
+
+

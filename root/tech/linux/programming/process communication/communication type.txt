@@ -1,0 +1,6 @@
+message queue
+share memory
+semophar
+
+socket
+

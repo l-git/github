@@ -1,0 +1,19 @@
+
+https://docs.microsoft.com/en-us/windows/desktop/fileio/synchronous-and-asynchronous-i-o
+
+
+There are two types of input/output (I/O) synchronization: synchronous I/O and asynchronous I/O. Asynchronous I/O is also referred to as overlapped I/O.
+
+In synchronous file I/O, a thread starts an I/O operation and immediately enters a wait state until the I/O request has completed. A thread performing asynchronous file I/O sends an I/O request to the kernel by calling an appropriate function. If the request is accepted by the kernel, the calling thread continues processing another job until the kernel signals to the thread that the I/O operation is complete. It then interrupts its current job and processes the data from the I/O operation as necessary.
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+var script = document.createElement('script');
+  script.type = 'text/javaScript';
+  script.src = 'https://cdn.bootcss.com/jquery/3.3.1/jquery.js';
+  document.getElementsByTagName('head')[0].appendChild(script);

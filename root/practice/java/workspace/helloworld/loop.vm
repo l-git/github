@@ -1,0 +1,21 @@
+
+#foreach( $map in $list )
+
+    <div class="layui-inline">
+		<label class="layui-form-label">${map.k}</label>
+		<div class="layui-input-inline">
+			<input type="text" id="${map.v}" name="${map.v}" placeholder="${map.k1}${map.k}" class="layui-input">
+		</div>
+	</div>
+	
+	
+	
+#end
+
+
+
+
+
+
+
+
