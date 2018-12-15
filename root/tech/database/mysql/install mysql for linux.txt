@@ -1,0 +1,85 @@
+
+install type:
+
+1.rpm
+
+2.bin
+
+3.source
+
+
+
+install method:
+
+rpm:
+    rpm -ivh mysql-*.rpm 
+
+
+bin:
+    groupadd mysql
+    useradd -g mysql mysql
+
+
+    cd mysql
+
+    tar -zxvf $home/mysql-*.tar.gz
+    ln -s mysql-*.tar.gz mysql 
+
+    cd mysql 
+    run mysql_install_db --user=mysql
+
+
+    change datadir own
+    chow -r root:mysql .
+    chown -r mysql:mysql data
+
+    start mysqll
+
+    mysql_safe --user=mysql 
+
+
+
+
+
+
+    source:
+        groupadd mysql
+        useradd -g mysql mysql
+
+        gunzip < mysql-version.tar.gz 
+        tar -xvf mysql-version.tar
+        cd mysql version
+
+        ./configure --prefix=/usr/local/mysql
+        make 
+        make istall
+
+
+        config my.cnf
+
+        install system table under data dir 
+        cd /usr/local/mysql 
+        mysql_install_db --user=mysql 
+
+
+        set datadir own 
+        datadir under source install is /var
+
+        chown -R root .
+        chown -R mysql var 
+        chgrp -r mysql . 
+
+        start mysql:
+        mysql_safe --user=mysql 
+
+
+
+
+
+
+
+
+
+
+
+
