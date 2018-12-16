@@ -1,0 +1,719 @@
+#rhel7 administration.txt
+
+
+
+#bash shell
+history command history
+
+
+network config   /etc/sysconfig/network-scripts/ifcfg-.*
+0 input
+1 output
+2 err output
+
+
+create tar file
+tar -cvf 
+zip
+unzip
+
+
+system load 
+uptime
+free
+
+
+
+task 
+
+at 
+
+crond
+
+cat /etc/crondtab
+
+change system runlevel
+
+inti 1-6
+
+change default 
+systemctl get-default
+
+systemctl set-default
+
+cat /etc/inittab
+
+multi-user
+graphics
+
+
+#file and disk management
+
+df -h
+
+rm -rf *
+
+
+ps -ef
+chown
+chmod
+
+useradd
+usermod
+userdel
+
+groupadd
+groupdel
+groupmod
+
+
+list all users:
+users
+
+or cat /etc/passwd
+
+grouplist
+cat /etc/group
+
+
+disk space usage:
+
+df -ah
+
+view use space of file or directory:
+du -sh
+
+
+mount
+
+
+disk management
+fdisk
+
+fdisk -l
+
+
+#log system
+
+usage for log:
+1.audit
+2.monitor
+3.analyse
+
+
+location of log:
+/var/log
+
+lastlog find user login history
+
+
+who
+whoami
+
+users   list all users of system
+
+find login log
+last log
+
+
+history
+
+
+
+find system log
+cat /var/log/message
+
+
+#user and group
+
+/etc/passwd
+
+user password file:
+/etc/shadow
+
+/etc/group
+
+
+batch add users:
+userlist file| bash script (do while or for)
+
+
+
+#application management
+
+rpm
+dpkg
+
+
+rpm -ivh (install rpm)
+
+find package install path:
+rpm -qpl xx.rpm
+
+rpm dependency problom:
+circle dependency for example
+
+install multi package simultinate:
+rpm p1.rpm p2.rpm p3.rpm .......
+
+
+
+find executable file path
+which xx
+
+
+
+install rpm force
+install -ivh --force  xx.rpm
+
+ignore dependency
+install -ivh --force --nodeps  xx.rpm
+
+
+upgrade package
+rpm -Uvh xx.rpm
+
+rpm -qa
+
+unstall rpm
+rpm -e xx.rpm
+
+
+find the special file belong to which rpm
+
+rpm -qf /file path(gcc for example)
+
+view infomation of rpm 
+
+rpm -qif xx.rpm
+
+
+
+##install file from source code
+
+
+./configure [--prefix=/usr/local/bin]
+
+make 
+make install
+
+
+
+#linux function library
+
+type:
+1. static library  (compile to exe when compile phase)(compile time)
+
+2.shared library  (used when exe startup)
+
+3.dynamically loaded library(load at runtime)
+
+where system find library path
+1. /etc/ld.so.cache
+
+ldconfig
+
+
+2. env variable
+LD_LIBRARY_PATH
+
+export LD_LIBRARY_PATH=/path dir:$LD_LIBRARY_PATH
+
+
+find which dynamic library used by exe\
+ldd exe(path to exe)
+
+#process management
+
+runlevel
+
+init n
+
+service unit control
+systemd
+
+
+systemctl
+
+ps aux|-ef
+
+change sshd listen port
+vi /etc/ssh/sshd_config
+
+selinux will prevent modify,stop selinux
+setenforce 0
+
+restart sshd
+systemctl restart sshd.service
+
+netstat -ltup
+
+view all process of special user
+ps -ef|grep username
+
+
+kill all process of special user
+
+killall -u username
+
+find port was used by which process
+lsof -i:prot number
+lsof port number
+
+#network management
+
+
+ifconfig
+route 
+tracerout
+netstat
+
+##network config
+/etc/hostname
+/ect/sysconfig/network-scripts/ifcfg-*
+/etc/resolv.conf  (dns)
+/etc/hossts
+systemctl restart network
+
+
+set hostname
+hostname xx
+
+set default gateway
+1.
+route add default gw 192.168.1.254
+(/etc/rc.local)
+
+
+2. add variable in /etc/systemctl/network
+
+restart
+
+
+
+
+nslookup (dns test)
+
+tcpdump 
+
+#linux route
+
+
+ifconfig
+ifup
+ifdown
+
+route
+
+#performance detect and optimize
+
+cpu
+top
+vmstat
+uptime
+
+
+
+
+memory
+free
+
+io
+iostat
+
+network
+netstat
+
+
+#firewall management
+
+iptables
+
+firewalld
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
