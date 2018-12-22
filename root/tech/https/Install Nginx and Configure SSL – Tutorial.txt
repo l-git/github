@@ -1,0 +1,28 @@
+#Install Nginx and Configure SSL – Tutorial
+
+https://www.drivereasy.com/knowledge/ssl-certificate-set-up-and-install-on-nginx-server/
+
+
+1. Install and Activate Nginx
+
+
+2. Get a Certificate and activate it 
+
+
+
+yum install epel-release -y
+
+yum install certbot -y
+
+certbot certonly
+
+3. Install SSL on Nginx
+
+
+
+
+
+
+
+
+
