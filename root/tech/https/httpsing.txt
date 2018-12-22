@@ -1,0 +1,156 @@
+https://letsencrypt.org/getting-started/
+
+Certbot
+https://certbot.eff.org/lets-encrypt/centosrhel7-nginx
+
+
+#install certbot
+
+$ yum -y install yum-utils
+$ yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+
+
+
+After doing this, you can install Certbot by running:
+
+$ sudo yum install python2-certbot-nginx            (this does not work)
+
+
+enable the EPEL repository first
+
+https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F
+
+
+yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+on RHEL 7 it is recommended to also enable the optional and extras repositories since EPEL packages may depend on packages from these repositories:
+   # subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
+
+
+install yum install subscription-manager  first
+
+yum install subscription-manager
+
+after install subscription-manager
+
+then run 
+
+subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
+
+(
+
+Traceback (most recent call last):
+  File "/usr/sbin/subscription-manager", line 9, in <module>
+    load_entry_point('subscription-manager==1.21.10', 'console_scripts', 'subscription-manager')()
+  File "/usr/lib/python2.7/site-packages/pkg_resources.py", line 378, in load_entry_point
+    return get_distribution(dist).load_entry_point(group, name)
+  File "/usr/lib/python2.7/site-packages/pkg_resources.py", line 2566, in load_entry_point
+    return ep.load()
+  File "/usr/lib/python2.7/site-packages/pkg_resources.py", line 2260, in load
+    entry = __import__(self.module_name, globals(),globals(), ['__name__'])
+  File "/usr/lib64/python2.7/site-packages/subscription_manager/scripts/subscription_manager.py", line 29, in <module>
+    if six.PY2:
+AttributeError: 'module' object has no attribute 'PY2'
+
+
+
+)
+
+subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms" not success skip 
+
+
+now install certbot
+
+yum install python2-certbot-nginx
+
+install python2-certbot-nginx success now
+
+certbot install success,certbot can run now;
+
+
+
+https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F
+
+yum install epel-release
+
+OTE for RHN users
+You need to also enable the 'optional' repository to use EPEL packages as they depend on packages in that repository. This can be done by enabling the RHEL optional subchannel for RHN-Classic. For certificate-based subscriptions see Red Hat Subscription Management Guide.
+Idea.png
+NOTE for RHEL 7 users with certificate subscriptions
+EPEL 7 packages assume that the 'optional' repository (rhel-7-server-optional-rpms for servers) and the 'extras' repository (rhel-7-server-extras-rpms for servers) are enabled. You can do this with: subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"
+Idea.png
+NOTE for CentOS users
+You can install EPEL by running yum install epel-release. The package is included in the CentOS Extras repository, enabled by default.
+
+
+
+when run certbot --nginx 
+
+certbot find nginx in path enviroment,so must add nginx to path enviroment,
+and certbot will start nginx at /etc/nginx/nginx 
+
+Error while running nginx -c /etc/nginx/nginx.conf -t.
+
+nginx: [emerg] open() "/etc/nginx/nginx.conf" failed (2: No such file or directory)
+nginx: configuration file /etc/nginx/nginx.conf test failed
+
+
+Error while running nginx -c /etc/nginx/nginx.conf -t.
+
+nginx: [emerg] open() "/etc/nginx/mime.types" failed (2: No such file or directory) in /etc/nginx/nginx.conf:18
+nginx: configuration file /etc/nginx/nginx.conf test failed
+
+
+
+#so add symbolink for nginx.conf and mime.types in /etc/nginx/
+ln -s /usr/local/nginx/conf/nginx.conf nginx.conf
+ln -s /usr/local/nginx/conf/mime.types mime.types
+
+
+
+now run certbot --nginx 
+
+err still exist:
+
+
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+The nginx plugin is not working; there may be problems with your existing configuration.
+The error was: PluginError('Nginx build is missing SSL module (--with-http_ssl_module).',)
+
+
+nginx must build with --with-http_ssl_module
+
+now rebuild nginx 
+
+cd nginx home 
+run ./configure --with-http_ssl_module
+
+make & make install
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+#make website to https
+
+
+resource url
+https://letsencrypt.org/getting-started/
+
+
+#1
+https://certbot.eff.org/lets-encrypt/centosrhel7-nginx
+
+enable the EPEL repository
+
+
+
+https://fedoraproject.org/wiki/EPEL#How_can_I_use_these_extra_packages.3F
+
+centos 7:
+NOTE for CentOS users
+You can install EPEL by running yum install epel-release. The package is included in the CentOS Extras repository, enabled by default.
+
+
+
+#2 install certbot
+
+
+
+for centos 
+yum install python2-certbot-nginx
+
+
+for erhl7:
+$ yum -y install yum-utils
+$ yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+
+sudo yum install python2-certbot-nginx
+
+
+#3 certbot nginx
+(must know:nginx must install with http module 
+./configure --with-http_ssl_module
+nginx must add to path enviroment
+
+make symbolink for nginx.conf and mime.types in /etc/nginx
+ln -s /usr/local/nginx/conf/nginx.conf nginx.conf
+ln -s /usr/local/nginx/conf/mime.types mime.types
+
+)
+
+certbot --nginx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
