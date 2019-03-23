@@ -235,6 +235,39 @@ systemd
 
 systemctl
 
+
+auto start script is under directory /etc/init.d  (install from rpm )
+/etc/rc.local
+
+rpm install directory layout:
+
+/var/lib 
+/var/log 
+/etc/install name 
+auto start service /etc/init.d 
+/etc/sysconfig    default config file directory
+
+
+Starting Your Software Automatically on Boot
+http://www.tldp.org/HOWTO/HighQuality-Apps-HOWTO/boot.html
+
+
+
+
+install from source code default layout directory 
+/etc/local/install software name 
+/etc/rc.local 
+config to start as service,add bash to directory /etc/init.d 
+
+
+
+
+
+
+
+
+
+
 ps aux|-ef
 
 change sshd listen port

@@ -1,0 +1,24 @@
+https://veerasundar.com/blog/2011/06/git-tutorial-comparing-files-with-diff/
+
+git diff usage
+
+
+// working directory      index
+git diff 
+
+
+//working directory       local repository
+git diff HEAD
+
+
+// index     local repository
+git diff --cached
+
+
+//diff between two commmit
+git diff commit_id commit_id 
+
+
+
+
+
